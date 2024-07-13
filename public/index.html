@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link 
+        rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" 
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>ChatApp</title>
+</head>
+<body>
+    <h1> uChat💭 </h1>
+    <div class = "main">
+        <div class "name">
+            <span><i class="far fa-user"></i></span>
+            <input 
+                type="text" 
+                id="name-input" 
+                class="name-input" 
+                value="anonymous"
+                max length="20"
+            />
+        </div>
+        <ul class="message-container" id="message-container">
+            <li class="message-left"><!--message coming from other clients-->
+                <p class="message">
+                    Hi, you are using uChat!
+                    <span>batman ● 1st Jan 00:00</span>
+                </p>
+            </li>
+
+            <li class="message-right"><!--our messages-->
+                <p class="message">
+                    Hi, you are using uChat!
+                    <span>batman ● 1st Jan 00:00</span>
+                </p>
+            </li>
+            <li class="message-feedback">
+                <p class="feedback" id="feedback">
+                    batman is typing...
+                </p>
+            </li>
+            <!--this form is handled by js-->
+            <form class="message-for" id="message-form">
+                <input type="text" name="message" id="message-input">
+                <div class="vdivider"></div>
+                <button type="submit" class="send-button">
+                    send <span><i class="fas fa-paper-plane"></i></span>
+                </button>
+            </form>
+            <h3 class="clients-total" id="clients-total">Total clients: 2</h3>
+        </ul>    
+    </div>
+</body>
+</html>
