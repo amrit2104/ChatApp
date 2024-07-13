@@ -4,8 +4,8 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
-
 }
+
 body {
     font-family: "Courier Prime", monospace;
     /* display: flex;
@@ -17,6 +17,7 @@ body {
     /*these two lines do the same thing as top 4*/
     background-color: #ebebeb;
 }
+
 .title {
     margin: 20px 0;
 }
