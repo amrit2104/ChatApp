@@ -39,6 +39,7 @@ socket.on('chat-message', (data) => {
 })
 
 function addMessageToUi(isOwnMessage, data) {
+    clearFeedback()
     const element = `
             <li class="${isOwnMessage ? 'message-right' : 'message-left'}">
                 <p class="message">
@@ -58,13 +59,13 @@ function scrollToBottom(){
 
 messageInput.addEventListener('focus', (e) => {
     socket.emit('feedback', {
-        feedback: `${nameInput.value} is typing a message`,
+        feedback: `✍️${nameInput.value} is typing...`,
     })
 })
 
 messageInput.addEventListener('keypress', (e) => {
     socket.emit('feedback', {
-        feedback: `${nameInput.value} is typing a message`,
+        feedback: `✍️${nameInput.value} is typing...`,
     })
 })
 
@@ -73,3 +74,21 @@ messageInput.addEventListener('blur', (e) => {
         feedback: ``,
     })
 })
+
+socket.on('feedback', (data) => {
+    clearFeedback()
+    const element = `
+            <li class="message-feedback">
+                <p class="feedback" id="feedback">
+                    ${data.feedback}
+                </p>
+            </li>
+            `
+    messageContainer.innerHTML += element
+})
+
+function clearFeedback() {
+    document.querySelectorAll('li.message-feedback').forEach(element => {
+        element.parentNode.removeChild(element)
+    })
+}
