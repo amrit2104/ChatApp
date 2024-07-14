@@ -20,6 +20,8 @@ socket.on('clients-total', (data) => {
 })
 
 function sendMessage() {
+    if(messageInput.value === '') // incase of empty messages pop-up please type something.
+        return
     console.log(messageInput.value)
     const data = {
         name: nameInput.value,
@@ -46,4 +48,10 @@ function addMessageToUi(isOwnMessage, data) {
             </li>
             `
     messageContainer.innerHTML += element
+    scrollToBottom()
+}
+
+//unable to scroll to bottom, lets fix this.
+function scrollToBottom(){
+    messageContainer.scrollTo(0, messageContainer.scrollHeight)
 }
