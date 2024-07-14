@@ -55,3 +55,21 @@ function addMessageToUi(isOwnMessage, data) {
 function scrollToBottom(){
     messageContainer.scrollTo(0, messageContainer.scrollHeight)
 }
+
+messageInput.addEventListener('focus', (e) => {
+    socket.emit('feedback', {
+        feedback: `${nameInput.value} is typing a message`,
+    })
+})
+
+messageInput.addEventListener('keypress', (e) => {
+    socket.emit('feedback', {
+        feedback: `${nameInput.value} is typing a message`,
+    })
+})
+
+messageInput.addEventListener('blur', (e) => {
+    socket.emit('feedback', {
+        feedback: ``,
+    })
+})
