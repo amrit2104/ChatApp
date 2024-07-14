@@ -14,5 +14,6 @@ Here are the steps to try and run the application.
 6. Now, open two or more tabs to make it feel like there are more than one member in your group applications.
 7. Type your messages and enjoy!!
 
-Skills used: HTML, CSS, Javascript, socket.io
+Skills used: HTML, CSS, Javascript, socket.io.
+
 Thanks!!
