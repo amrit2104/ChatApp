@@ -15,7 +15,7 @@ messageForm.addEventListener('submit', (e) => {
     sendMessage()
 })
 
-socket.on(`clients-total`, (data) => {
+socket.on('clients-total', (data) => {
     clientsTotal.innerText = `Total Clients: ${data}`
 })
 
@@ -24,15 +24,15 @@ function sendMessage() {
     const data = {
         name: nameInput.value,
         message: messageInput.value,
-        dateTime: new Date()
+        dateTime: new Date(),
     }
     socket.emit('message', data) //for sending the message using socket
     addMessageToUi(true,data)
     messageInput.value = ''
 }
 
-socket.on('chat-message', (date) => {
-    // console.log(data)
+socket.on('chat-message', (data) => {
+    console.log(data)
     addMessageToUi(false,data)
 })
 
@@ -40,10 +40,10 @@ function addMessageToUi(isOwnMessage, data) {
     const element = `
             <li class="${isOwnMessage ? "message-right" : "message-left"}">
                 <p class="message">
-                    ${data.message}!
-                    <span>${data.name} ● {moment(data.dateTime).fromNow()}</span>
+                    ${data.message}
+                    <span>${data.name} ● ${moment(data.dateTime).fromNow()}</span>
                 </p>
             </li>
             `
-    messageContainer
+    messageContainer.innerHTML += element
 }
