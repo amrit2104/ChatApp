@@ -7,7 +7,7 @@ const server = app.listen(PORT, () => console.log(`chat server on port ${PORT}`)
 // initiating web server with socket.io
 const io = require('socket.io')(server)
 
-app.use(express.static(path.join(__dirname,'/')))
+app.use(express.static(path.join(__dirname,'')))
 
 let socketsConnected = new Set()
 

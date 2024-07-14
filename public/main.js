@@ -10,7 +10,7 @@ const messageForm = document.getElementById('message-form')
 const messageInput = document.getElementById('message-input')
 
 
-const messageTone = new Audio('/notify.mp3')
+const messageTone = new Audio('/public/notify.mp3')
 //adding an event
 messageForm.addEventListener('submit', (e) => {
     e.preventDefault() //prevents reloading of the page.
