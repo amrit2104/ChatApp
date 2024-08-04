@@ -5,6 +5,7 @@ const PORT = process.env.PORT || 4000
 const server = app.listen(PORT, () => console.log(`chat server on port ${PORT}`))
 
 // initiating web server with socket.io
+//check
 const io = require('socket.io')(server)
 
 app.use(express.static(path.join(__dirname,'')))
